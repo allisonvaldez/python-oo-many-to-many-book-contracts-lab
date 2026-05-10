@@ -14,13 +14,13 @@ class Book:
         # Make sure to add the book to the class level for the list
         Book.all.append(self)
 
-        # Create a function to return all the contract for the book
-        def contracts(self):
-            return [contract for contact in Contract.all if contract.book == self]
-        
-        # Create a function to return all authors for a book
-        def authors(self):
-            return [contact.author for contract in self.contracts()]
+    # Create a function to return all the contracts for the book
+    def contracts(self): 
+        return [contract for contract in Contract.all if contract.book == self]
+    
+    # Create a function to return all authors for a book
+    def authors(self): 
+        return [contract.author for contract in self.contracts()] 
 
 
 # Author class for the books 
@@ -48,7 +48,7 @@ class Author:
     
     # Create a function to return total royalties for author
     def total_royalties(self):
-        return sum(contact.royalties for contract in self.contracts())
+        return sum(contract.royalties for contract in self.contracts()) 
     
 
 # Contract for the Author of the book
